@@ -1,0 +1,94 @@
+/* ============================================================
+   BASE.CSS — Reset · Variables · Tipografía · Utilidades
+   ============================================================ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:         #050c14;
+  --surface:    #0a1628;
+  --teal:       #0f7a6e;
+  --teal-light: #19c4b4;
+  --blue:       #1a5aff;
+  --blue-mid:   #1e3a72;
+  --white:      #f0f4ff;
+  --muted:      #8095b0;
+  --accent:     #19c4b4;
+
+  --font-display: 'Geologica', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --side-padding: 56px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:   var(--bg);
+  color:        var(--white);
+  font-family:  var(--font-body);
+  font-weight:  300;
+  overflow-x:   hidden;
+  cursor:       none;
+}
+
+::-webkit-scrollbar           { width: 4px; }
+::-webkit-scrollbar-track     { background: var(--bg); }
+::-webkit-scrollbar-thumb     { background: var(--blue-mid); border-radius: 4px; }
+
+a { text-decoration: none; }
+
+.section-label {
+  font-size:      11px;
+  letter-spacing: 3px;
+  color:          var(--accent);
+  text-transform: uppercase;
+  margin-bottom:  16px;
+}
+
+.section-title {
+  font-family:   var(--font-display);
+  font-size:     clamp(28px, 3vw, 42px);
+  font-weight:   700;
+  letter-spacing: -1px;
+  margin-bottom: 56px;
+  max-width:     500px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes float {
+  0%,  100% { transform: translate(0, 0) scale(1);         }
+  33%       { transform: translate(20px, -30px) scale(1.05); }
+  66%       { transform: translate(-15px, 20px) scale(0.97); }
+}
+
+@keyframes pulse {
+  0%,  100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.5; transform: scale(0.8); }
+}
+
+.visible {
+  opacity:   1 !important;
+  transform: translateY(0) !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --side-padding: 24px;
+  }
+}
